@@ -285,6 +285,10 @@ strong{font-weight:600;color:var(--ink);}
 .brand-card .q{font-style:italic;color:var(--ink);}
 .brand-card .lesson{margin-top:14px;font-size:15px;color:var(--ink);}
 .brand-card .lesson::before{content:"Lo que aprendemos: ";font-weight:600;}
+.ex{margin-top:14px;}
+.ex .ads{margin-top:10px;}
+.ad-cap{position:absolute;left:0;right:0;top:0;padding:8px 8px 18px;font-size:11.5px;line-height:1.25;color:#F3F1ED;background:linear-gradient(rgba(18,18,18,.72),rgba(18,18,18,0));}
+.ex .ad{height:230px;}
 .ads{margin-top:10px;position:relative;}
 .ads-track{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:thin;}
 .ad{position:relative;flex:0 0 auto;scroll-snap-align:start;display:block;height:190px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--bg);text-decoration:none;}
@@ -332,6 +336,11 @@ strong{font-weight:600;color:var(--ink);}
 .rule .brand{color:var(--on-dark);}
 .fmt-item .turn{grid-column:2;margin-top:8px;font-size:14.5px;color:var(--ink-2);}
 .fmt-item .turn::before{content:"Dónde entra el producto: ";font-weight:600;color:var(--ink);}
+.ico-mock{margin-top:14px;background:var(--bg);border-radius:var(--r-md);padding:16px 16px 14px;}
+.ico-t{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.ico-row{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px;}
+.ico-row li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;font-size:12.5px;line-height:1.3;color:var(--ink);}
+.ico-row svg{width:30px;height:30px;fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
 .scores{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px;}
 .score{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:16px 14px;}
 .score b{display:block;font-size:30px;font-weight:300;letter-spacing:-.03em;line-height:1.1;}
@@ -381,9 +390,10 @@ strong{font-weight:600;color:var(--ink);}
   .ads-count{text-align:left;}
   .brand-links .bl{flex:1 1 100%;justify-content:center;}
   .ad{height:170px;}
+  .ico-row{grid-template-columns:repeat(3,1fr);row-gap:16px;}
 }
 @media print{
-  .brand-card,.fmt-item,.rule,.fn-row,.find,.score,.shot,.road .col,.good li{break-inside:avoid;}
+  .brand-card,.fmt-item,.rule,.ico-mock,.fn-row,.find,.score,.shot,.road .col,.good li{break-inside:avoid;}
 }
 </style>
 </head>
@@ -413,7 +423,7 @@ strong{font-weight:600;color:var(--ink);}
     <ul class="inc">
       <li><div>Las marcas que escalan venden historias, colecciones y regalos, no platos sueltos<span>Las tres referentes repiten la misma fórmula: cada diseño tiene un significado, las colecciones se lanzan y se retiran, y la vajilla se ofrece como regalo y en juegos de 2 o 4 con descuento. <span class="brand">Mada</span> ya tiene la parte más difícil, que son las historias.</span></div></li>
       <li><div>El sitio es lento en celular y esconde el botón de compra<span>La página de inicio pesa 10,9 MB (9,6 MB son un video) y la ficha de producto tarda 9,7 segundos en mostrar la imagen principal. En celular, el botón "Añadir al carrito" aparece casi dos pantallas más abajo del precio.</span></div></li>
-      <li><div>Faltan señales de confianza y medición antes de pautar<span>No hay reseñas en ninguna ficha, el costo de envío solo aparece al pagar y no encontramos el píxel oficial de Meta ni Google Analytics. Esto último hay que resolverlo antes de invertir en pauta.</span></div></li>
+      <li><div>Faltan señales de confianza y medición antes de pautar<span>No hay reseñas en ninguna ficha, nada garantiza que la vajilla llegue bien, el costo de envío solo aparece al pagar y no encontramos el píxel oficial de Meta ni Google Analytics. Esto último hay que resolverlo antes de invertir en pauta.</span></div></li>
     </ul>
   </section>
 
@@ -648,6 +658,11 @@ strong{font-weight:600;color:var(--ink);}
         <p class="ev">No hay aplicación de reseñas instalada ni fotos de clientes. Con platos de $140.000 a $190.000 y una marca nueva para quien llega por un anuncio, la opinión de otros compradores pesa mucho.</p>
         <p class="fix">instalar una aplicación de reseñas (Judge.me tiene plan gratis), pedir reseña con foto por correo 10 días después de la entrega y mostrar las mejores en la portada y en los anuncios.</p></article>
 
+      <article class="find"><div class="find-top"><span class="prio a">Prioridad alta</span><span class="area">Confianza · envío</span></div>
+        <h3>No hay una garantía clara de que la vajilla llega bien</h3>
+        <p class="ev">La ficha no cuenta cómo se empaca ni qué pasa si una pieza llega rota. La política de devoluciones solo dice que hay que escribir "para que podamos evaluar el problema", y además se contradice: en un párrafo da 15 días y en otro 30. En vajilla, el miedo a que llegue quebrada es una de las razones más comunes para no comprar por internet, y más con una marca que la persona acaba de conocer en un anuncio.</p>
+        <p class="fix">una garantía de llegada escrita en una frase y visible en la ficha (junto al botón), en el carrito y en el pie de página: <b>"Llega perfecto o te lo reponemos, sin costo."</b> Cómo funciona: si una pieza llega con algún daño, la clienta manda una foto por WhatsApp dentro de las 48 horas siguientes a la entrega y <span class="brand">Mada</span> le responde ese mismo día y le envía la pieza de nuevo (o le devuelve el dinero), sin pedirle que devuelva la rota. Mostrar también el empaque (un video corto del embalaje sirve como anuncio de confianza) y dejar la política con un solo plazo.</p></article>
+
       <article class="find"><div class="find-top"><span class="prio m">Prioridad media</span><span class="area">Envío y ticket</span></div>
         <h3>El costo de envío solo aparece al pagar y no hay envío gratis desde un monto</h3>
         <p class="ev">La ficha dice que el envío "se calcula según peso, volumen y destino" y se muestra antes de finalizar. Emma Bridgewater y MacKenzie-Childs muestran un umbral de envío gratis (£50 y US$150), y Emma Bridgewater además da descuentos por cantidad.</p>
@@ -656,12 +671,14 @@ strong{font-weight:600;color:var(--ink);}
       <article class="find"><div class="find-top"><span class="prio m">Prioridad media</span><span class="area">Ficha de producto</span></div>
         <h3>No queda claro qué se compra: nombres en inglés y la medida escondida</h3>
         <p class="ev">Los productos se llaman "Dinner Plate" y "Dessert Plate". La medida (28 cm) y la nota "te llegará un plato" están dentro de un acordeón, y las direcciones de las fichas dicen "set-x-2", lo que hace pensar que son dos.</p>
-        <p class="fix">nombres en español ("Plato de comida · 28 cm"), la línea "1 pieza · 28 cm · apto para lavavajillas y microondas" bajo el precio, y direcciones nuevas sin "set-x-2", con redirección de las viejas.</p></article>
+        <p class="fix">nombres en español ("Plato de comida · 28 cm") y, bajo el precio, una fila de íconos con lo que hoy está escondido en el texto: medida, cuántas piezas trae, si va al lavavajillas y al microondas, la garantía de llegada y el origen. Los íconos se leen de un vistazo en celular y se repiten igual en todas las fichas. Además, direcciones nuevas sin "set-x-2", con redirección de las viejas.</p>
+        <div class="ico-mock"><p class="ico-t">Así se vería bajo el precio</p><ul class="ico-row"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5 12h14M7.5 9.5 5 12l2.5 2.5M16.5 9.5 19 12l-2.5 2.5"/></svg><span>28 cm de diámetro</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg><span>1 pieza</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 7h16"/><circle cx="12" cy="14" r="4"/><path d="M7 5h.01M10 5h.01"/></svg><span>Apto para lavavajillas</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><rect x="6" y="8" width="9" height="8" rx="1"/><path d="M18 9v.01M18 12v.01M18 15v.01"/></svg><span>Apto para microondas</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg><span>Llega perfecto o lo reponemos</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Diseñado en Barranquilla</span></li></ul></div></article>
 
       <article class="find"><div class="find-top"><span class="prio m">Prioridad media</span><span class="area">Ticket promedio</span></div>
         <h3>Casi no hay sets para armar la mesa completa</h3>
         <p class="ev">De 23 productos, solo 2 son sets (Domingos de Desayuno, a $250.000 y $290.000). El sitio tiene platos, individuales, servilletas, servilleteros y portavasos, que juntos arman una mesa, pero se venden por separado.</p>
-        <p class="fix">sets de "Mesa para dos" y "Mesa para cuatro" con precio de set, un bloque "Completa tu mesa" en la ficha y una sugerencia en el carrito.</p></article>
+        <p class="fix">sets de "Mesa para dos" y "Mesa para cuatro" con precio de set, un bloque "Completa tu mesa" en la ficha y una sugerencia en el carrito. <span class="brand">Emma Bridgewater</span> anuncia sus juegos de 4 con 20% de descuento como "mesa lista para invitados", y <span class="brand">Costiera</span> vende kits completos y deja que la clienta arme su propio combo.</p>
+        <div class="ex"><p class="ico-t">Así lo hacen los referentes</p><div class="ads"><div class="ads-track"><a class="ad" href="https://www.facebook.com/ads/library/?id=1803124467698865" target="_blank" rel="noopener"><img src="img/ads/emma-1803124467698865.jpg" alt="Anuncio: Hosting season calls for a table set for your favourite people, with good food, full glass" loading="lazy" width="338" height="600"><span class="ad-tag">Ver ↗</span><span class="ad-cap">Emma Bridgewater · 20% en sets de 4</span></a><a class="ad" href="https://www.facebook.com/ads/library/?id=1841237690092986" target="_blank" rel="noopener"><img src="img/ads/emma-1841237690092986.jpg" alt="Anuncio: Get your collection growing with our fantastic fours! Sets of beautiful Emma Bridgewater p" loading="lazy" width="338" height="600"><span class="ad-tag">Ver ↗</span><span class="ad-cap">Emma Bridgewater · juegos de 4</span></a><a class="ad" href="https://www.facebook.com/ads/library/?id=1027151449797904" target="_blank" rel="noopener"><img src="img/ads/cost-1027151449797904.jpg" alt="Anuncio: 🇮🇹 For the true olive oil enthusiast. Our Big Amalfi Combo Professional Kit is designed fo" loading="lazy" width="360" height="450"><span class="ad-tag">Ver ↗</span><span class="ad-cap">Costiera · kit completo</span></a><a class="ad" href="https://www.facebook.com/ads/library/?id=1376000867683173" target="_blank" rel="noopener"><img src="img/ads/cost-1376000867683173.jpg" alt="Anuncio: Your olive oil combo should feel like yours. Choose the tin size that suits your kitchen, " loading="lazy" width="360" height="360"><span class="ad-tag">Ver ↗</span><span class="ad-cap">Costiera · arma tu combo</span></a><a class="ad" href="https://www.facebook.com/ads/library/?id=2935938490093170" target="_blank" rel="noopener"><img src="img/ads/cost-2935938490093170.jpg" alt="Anuncio: Give a little Italy to the people on your list. Mix and match 12 ceramic olive oil bottles" loading="lazy" width="360" height="361"><span class="ad-tag">Ver ↗</span><span class="ad-cap">Costiera · cajas de regalo</span></a></div><span class="ads-hint">5 anuncios · desliza →</span></div></div></article>
 
       <article class="find"><div class="find-top"><span class="prio m">Prioridad media</span><span class="area">Página de inicio</span></div>
         <h3>La portada cuenta la historia pero muestra pocos productos</h3>
@@ -699,7 +716,8 @@ strong{font-weight:600;color:var(--ink);}
         <li>Conectar píxel, API de conversiones, catálogo y Google</li>
         <li>Video móvil liviano y fotos comprimidas</li>
         <li>Unificar "pintado a mano" y "decal"</li>
-        <li>Medida y "1 pieza" visibles; nombres en español</li>
+        <li>Íconos bajo el precio: medida, 1 pieza, lavavajillas, microondas</li>
+        <li>Garantía de llegada visible y política con un solo plazo</li>
         <li>Ventana del 10% más tarde; meta descripción e imagen</li></ul></div>
       <div class="col"><p class="label">Semanas 2 a 4</p><h3>Ficha y confianza</h3><ul>
         <li>Botón de compra arriba y fijo en celular</li>
