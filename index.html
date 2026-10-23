@@ -299,6 +299,30 @@ strong{font-weight:600;color:var(--ink);}
 .fmt-item .hook b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px;font-weight:500;}
 .fmt-item .tags{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
 .fmt-item .tags span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-2);}
+.funnel{display:grid;gap:6px;margin-top:26px;justify-items:center;}
+.fn-row{width:var(--w);display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:14px;padding:16px 20px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line);color:var(--ink);text-decoration:none;}
+.fn-row:first-child{background:var(--dark);border-color:var(--dark);color:var(--on-dark);}
+.fn-row:first-child .fn-t{color:#C9C6C0;}
+.fn-k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;}
+.fn-t{font-size:13.5px;color:var(--muted);line-height:1.35;}
+.fn-t b{display:block;font-size:16px;font-weight:500;color:inherit;}
+.fn-row:first-child .fn-t b{color:var(--on-dark);}
+.fn-row:not(:first-child) .fn-t b{color:var(--ink);}
+.fn-p{font-size:28px;font-weight:300;letter-spacing:-.03em;}
+.stage{margin-top:48px;padding-top:22px;border-top:1px solid var(--ink);scroll-margin-top:20px;}
+.stage-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+.stage-k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink);background:#E3F3E4;padding:5px 10px;border-radius:999px;}
+.stage-head h3{font-size:28px;font-weight:300;letter-spacing:-.03em;}
+.stage > p{margin-top:12px;}
+.rule{margin-top:18px;background:var(--dark);color:var(--on-dark);border-radius:var(--r-lg);padding:22px 22px;}
+.rule-t{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+.rule ol{list-style:none;margin-top:10px;}
+.rule li{padding:10px 0;border-top:1px solid rgba(243,241,237,.12);font-size:15px;color:#C9C6C0;}
+.rule li:first-child{border-top:0;}
+.rule li b{color:var(--on-dark);font-weight:600;}
+.rule .brand{color:var(--on-dark);}
+.fmt-item .turn{grid-column:2;margin-top:8px;font-size:14.5px;color:var(--ink-2);}
+.fmt-item .turn::before{content:"Dónde entra el producto: ";font-weight:600;color:var(--ink);}
 .scores{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px;}
 .score{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:16px 14px;}
 .score b{display:block;font-size:30px;font-weight:300;letter-spacing:-.03em;line-height:1.1;}
@@ -341,12 +365,15 @@ strong{font-weight:600;color:var(--ink);}
   .shots .shot:last-child{grid-column:1 / -1;}
   .good,.road{grid-template-columns:1fr;}
   .fmt-item{grid-template-columns:1fr;}
-  .fmt-item p,.fmt-item .hook,.fmt-item .tags{grid-column:1;}
+  .fmt-item p,.fmt-item .hook,.fmt-item .tags,.fmt-item .turn{grid-column:1;}
+  .fn-row{width:100%;grid-template-columns:52px 1fr auto;padding:14px 16px;}
+  .fn-row:nth-child(2){width:92%;}
+  .fn-row:nth-child(3){width:84%;}
   .ads-count{text-align:left;}
   .brand-links .bl{flex:1 1 100%;justify-content:center;}
 }
 @media print{
-  .brand-card,.fmt-item,.find,.score,.shot,.road .col,.good li{break-inside:avoid;}
+  .brand-card,.fmt-item,.rule,.fn-row,.find,.score,.shot,.road .col,.good li{break-inside:avoid;}
 }
 </style>
 </head>
@@ -364,7 +391,7 @@ strong{font-weight:600;color:var(--ink);}
     <p class="lede">Buscamos en el mundo marcas de platos y vajillas con más de 50 anuncios activos en Meta, elegimos las tres más cercanas a <span class="brand">Con amor, Mada</span> y revisamos qué contenido usan para vender. Después hicimos un diagnóstico del sitio, en celular y en computador, para encontrar lo que hoy frena la compra.</p>
     <div class="toc">
       <a class="pill" href="#referentes"><span class="dot"></span>1 · Referentes</a>
-      <a class="pill" href="#contenido"><span class="dot"></span>2 · Contenido para Mada</a>
+      <a class="pill" href="#contenido"><span class="dot"></span>2 · Contenido por embudo</a>
       <a class="pill" href="#sitio"><span class="dot"></span>3 · Diagnóstico del sitio</a>
       <a class="pill" href="#plan"><span class="dot"></span>4 · Plan de acción</a>
     </div>
@@ -441,51 +468,129 @@ strong{font-weight:600;color:var(--ink);}
   <!-- 2. CONTENIDO -->
   <section id="contenido">
     <p class="label">2 · Contenido para vender</p>
-    <h2>Ocho tipos de contenido <b>para Con amor, Mada</b></h2>
-    <p>Son los formatos que más se repiten en las referentes, traducidos al universo de <span class="brand">Mada</span>. Los ejemplos de inicio son puntos de partida: los ángulos definitivos se validan con datos durante las primeras semanas de pauta.</p>
+    <h2>El contenido, ordenado <b>por etapa del embudo</b></h2>
+    <p><span class="brand">Mada</span> es una marca nueva: casi nadie la conoce todavía, así que la mayor parte del contenido tiene que servir para que la descubran. Por eso repartimos los formatos en tres etapas y le damos el mayor peso a la primera. Los inicios son ejemplos y puntos de partida: los ángulos definitivos se validan con datos en las primeras semanas de pauta.</p>
+
+    <div class="funnel">
+      <a class="fn-row" href="#tofu" style="--w:100%"><span class="fn-k">TOFU</span><span class="fn-t"><b>Descubrimiento</b>Gente que no conoce a Mada</span><span class="fn-p">70%</span></a>
+      <a class="fn-row" href="#mofu" style="--w:78%"><span class="fn-k">MOFU</span><span class="fn-t"><b>Consideración</b>Ya vio un video o visitó el perfil</span><span class="fn-p">20%</span></a>
+      <a class="fn-row" href="#bofu" style="--w:56%"><span class="fn-k">BOFU</span><span class="fn-t"><b>Compra</b>Visitó el sitio o dejó algo en el carrito</span><span class="fn-p">10%</span></a>
+    </div>
+    <p class="src">Porcentaje = de cada 10 piezas nuevas que producimos, cuántas van a cada etapa. Al principio las audiencias de MOFU y BOFU son pequeñas; crecen a medida que el contenido de descubrimiento trae gente nueva.</p>
+
+    <!-- TOFU -->
+    <div class="stage" id="tofu">
+      <div class="stage-head"><span class="stage-k">TOFU · 70%</span><h3>Descubrimiento</h3></div>
+      <p>Le hablamos a alguien que no sabe que <span class="brand">Mada</span> existe y que no está buscando platos. Por eso el anuncio no arranca con el producto: arranca con algo que esa persona vive, y el plato aparece después como la respuesta.</p>
+      <div class="rule">
+        <p class="rule-t">La regla del hook en TOFU</p>
+        <ol>
+          <li><b>0 a 3 s · El problema.</b> Una situación que la persona reconoce. Sin plato en cuadro y sin decir <span class="brand">Mada</span>.</li>
+          <li><b>3 a 10 s · Se queda.</b> Profundizamos el problema o la pregunta, para que siga viendo.</li>
+          <li><b>Después · La solución.</b> Ahí entra la pieza, en uso, como lo que resuelve el problema.</li>
+          <li><b>Al final · La marca.</b> El nombre y el llamado a ver la colección.</li>
+        </ol>
+      </div>
+    </div>
 
     <div class="fmt">
-      <div class="fmt-item"><span class="k">01</span><h3>La historia de cada diseño</h3>
+      <div class="fmt-item"><span class="k">T1</span><h3>Comer de afán</h3>
+        <p>Almorzamos de pie, frente al computador o en el empaque del domicilio. La pieza muestra esa escena de todos los días y luego a alguien que se detiene, pone la mesa y se sienta a comer.</p>
+        <p class="hook"><b>Hook · sin producto ni marca</b>"¿Hace cuánto no almuerzas sentado y sin el celular en la mano?"</p>
+        <p class="turn">el plato aparece cuando la persona sirve la comida y se sienta.</p>
+        <div class="tags"><span>Reel 15–30 s</span><span>Problema / solución</span></div></div>
+
+      <div class="fmt-item"><span class="k">T2</span><h3>La vajilla guardada "para ocasiones"</h3>
+        <p>Casi todas las casas tienen una vajilla bonita guardada en la vitrina que nunca se usa por miedo a dañarla. Hablamos de esa costumbre y de por qué los días normales también cuentan.</p>
+        <p class="hook"><b>Hook · sin producto ni marca</b>"En tu casa hay una vajilla que lleva diez años guardada en una vitrina."</p>
+        <p class="turn">piezas pensadas para usar todos los días: lavavajillas y microondas.</p>
+        <div class="tags"><span>Reel / carrusel</span><span>Identificación</span></div></div>
+
+      <div class="fmt-item"><span class="k">T3</span><h3>El regalo para la que ya tiene todo</h3>
+        <p>Diciembre, Día de la Madre, Amor y Amistad, matrimonios, casa nueva: siempre la misma duda sobre qué regalar. Arrancamos por esa duda, con los regalos repetidos de siempre.</p>
+        <p class="hook"><b>Hook · sin producto ni marca</b>"Si vas a regalar otra vela aromática este diciembre, espera."</p>
+        <p class="turn">una pieza con nombre e historia propia, en su empaque y con tarjeta.</p>
+        <div class="tags"><span>Reel / estático</span><span>Temporadas</span><span>Como Emma Bridgewater</span></div></div>
+
+      <div class="fmt-item"><span class="k">T4</span><h3>La casa que se ve como todas</h3>
+        <p>Muebles, cojines y platos del mismo almacén que usan todos: casas bonitas, pero sin nada propio. Hablamos de cómo se le da personalidad a un espacio con pocas piezas.</p>
+        <p class="hook"><b>Hook · sin producto ni marca</b>"Tu casa se parece a la de todos tus amigos, y no es casualidad."</p>
+        <p class="turn">piezas diseñadas en Barranquilla, cada una con nombre y cuento.</p>
+        <div class="tags"><span>Reel / carrusel</span><span>Decoración</span></div></div>
+
+      <div class="fmt-item"><span class="k">T5</span><h3>Costeño lejos de casa</h3>
+        <p>Barranquilleros y costeños que viven en Bogotá, Medellín o fuera del país y extrañan el almuerzo del domingo, el mar y la familia. Es un público grande y con mucha emoción.</p>
+        <p class="hook"><b>Hook · sin producto ni marca</b>"Si eres de la Costa y vives en Bogotá, este video te va a dar nostalgia."</p>
+        <p class="turn">una mesa que trae el Caribe, con envío a todo el país.</p>
+        <div class="tags"><span>Reel 15–30 s</span><span>Emoción / origen</span><span>Como Costiera</span></div></div>
+
+      <div class="fmt-item"><span class="k">T6</span><h3>Por qué en el restaurante se ve más rica</h3>
+        <p>Contenido educativo: el emplatado, el color y el plato cambian cómo se ve la misma comida. Antes y después con la misma receta servida de dos formas.</p>
+        <p class="hook"><b>Hook · sin producto ni marca</b>"Los restaurantes tienen un truco para que la comida se vea más rica, y no está en la cocina."</p>
+        <p class="turn">el mismo plato de comida, servido en una pieza de la colección.</p>
+        <div class="tags"><span>Reel educativo</span><span>Antes / después</span></div></div>
+
+      <div class="fmt-item"><span class="k">T7</span><h3>Llegan visitas y nada combina</h3>
+        <p>El momento de poner la mesa para invitados y darse cuenta de que hay cuatro platos de una vajilla, dos de otra y uno despicado.</p>
+        <p class="hook"><b>Hook · sin producto ni marca</b>"Vienen seis a almorzar y solo tienes cuatro platos que combinan."</p>
+        <p class="turn">la mesa completa armada en segundos con piezas que combinan entre sí.</p>
+        <div class="tags"><span>Reel / UGC</span><span>Anfitriona</span><span>Como MacKenzie-Childs</span></div></div>
+    </div>
+
+    <!-- MOFU -->
+    <div class="stage" id="mofu">
+      <div class="stage-head"><span class="stage-k">MOFU · 20%</span><h3>Consideración</h3></div>
+      <p>Esta persona ya vio un anuncio o visitó el perfil. Ahora sí mostramos la pieza y la marca desde el inicio: el trabajo es darle razones para confiar y para elegir <span class="brand">Mada</span>.</p>
+    </div>
+    <div class="fmt">
+      <div class="fmt-item"><span class="k">M1</span><h3>La historia de cada diseño</h3>
         <p>Cada plato ya tiene nombre y cuento (Casa de Agua, Reposo Post Almuerzo, En Menos que Canta un Gallo). En video: el plato en manos, con la voz de una de las fundadoras leyendo su historia.</p>
         <p class="hook"><b>Inicio de ejemplo</b>"Este plato tiene nombre propio. Se llama Casa de Agua y lleva el mar adentro."</p>
-        <div class="tags"><span>Reel 15–30 s</span><span>Descubrimiento</span><span>Como Emma Bridgewater</span></div></div>
+        <div class="tags"><span>Reel 15–30 s</span><span>Historia</span><span>Como Emma Bridgewater</span></div></div>
 
-      <div class="fmt-item"><span class="k">02</span><h3>Las manos detrás de cada pieza</h3>
-        <p>El taller, los artesanos y el proceso, desde la porcelana en blanco hasta la pieza terminada. Mostrar el proceso real tal como es (ver el punto sobre "pintado a mano" y "decal" en el diagnóstico).</p>
-        <p class="hook"><b>Inicio de ejemplo</b>"Nadie en Colombia hace este plato igual dos veces. Te mostramos por qué."</p>
-        <div class="tags"><span>Video detrás de cámaras</span><span>Confianza</span><span>Como Costiera</span></div></div>
+      <div class="fmt-item"><span class="k">M2</span><h3>Las manos detrás de cada pieza</h3>
+        <p>El taller, las personas y el proceso, desde la porcelana en blanco hasta la pieza terminada. Mostrar el proceso real tal como es (ver el punto sobre "pintado a mano" y "decal" en el diagnóstico).</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Así se hace un plato de Mada, de principio a fin."</p>
+        <div class="tags"><span>Detrás de cámaras</span><span>Confianza</span><span>Como Costiera</span></div></div>
 
-      <div class="fmt-item"><span class="k">03</span><h3>Arma la mesa en 15 segundos</h3>
-        <p>Plano cenital: mantel, individual, plato de comida, plato de postre, servilleta y servilletero, uno tras otro. Vende el conjunto completo y sube el ticket.</p>
-        <p class="hook"><b>Inicio de ejemplo</b>"Así se pone una mesa del Caribe para el almuerzo del domingo."</p>
-        <div class="tags"><span>Video cenital</span><span>Consideración</span><span>Sets</span></div></div>
+      <div class="fmt-item"><span class="k">M3</span><h3>Arma la mesa en 15 segundos</h3>
+        <p>Plano cenital: mantel, individual, plato de comida, plato de postre, servilleta y servilletero, uno tras otro. Muestra que las piezas combinan y sube el ticket.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Así se pone una mesa de Mada para el almuerzo del domingo."</p>
+        <div class="tags"><span>Video cenital</span><span>Sets</span></div></div>
 
-      <div class="fmt-item"><span class="k">04</span><h3>El regalo que no se olvida</h3>
-        <p>Unboxing del empaque y la tarjeta, y quién lo recibe. Calendario: Navidad y fin de año, Día de la Madre (mayo), Amor y Amistad (septiembre), matrimonios y casa nueva.</p>
-        <p class="hook"><b>Inicio de ejemplo</b>"Para la que ya tiene de todo: un plato con una historia del Caribe."</p>
-        <div class="tags"><span>Unboxing</span><span>Temporadas</span><span>Como Emma Bridgewater y Costiera</span></div></div>
+      <div class="fmt-item"><span class="k">M4</span><h3>Clientes reales y comida servida</h3>
+        <p>Reseñas con foto, clientes mostrando su mesa y colaboraciones con cocineras o restaurantes de Barranquilla sirviendo comida del Caribe en las piezas. Los sorteos ayudan a crecer la base de correos.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Le preguntamos a [cliente] cómo usa su Casa de Agua."</p>
+        <div class="tags"><span>UGC / reseñas</span><span>Colaboración</span><span>Como MacKenzie-Childs</span></div></div>
+    </div>
 
-      <div class="fmt-item"><span class="k">05</span><h3>Capítulos que se acaban</h3>
-        <p><span class="brand">Mada</span> ya organiza sus colecciones en capítulos. Lanzar cada uno como evento, con cuenta regresiva, lista de espera por correo y aviso cuando un diseño está por agotarse.</p>
-        <p class="hook"><b>Inicio de ejemplo</b>"El Capítulo Uno se está quedando sin piezas. El Dos llega en [fecha]."</p>
-        <div class="tags"><span>Lanzamiento</span><span>Urgencia sin descuento</span><span>Como MacKenzie-Childs</span></div></div>
-
-      <div class="fmt-item"><span class="k">06</span><h3>Sets con mejor precio</h3>
-        <p>Juegos de 2 y de 4 (comida + postre, mesa para cuatro) con un precio de set claro frente a las piezas por separado. Pieza fija para la pauta de conversión.</p>
-        <p class="hook"><b>Inicio de ejemplo</b>"Mesa para cuatro: 4 platos de comida y 4 de postre, con [X]% de descuento."</p>
-        <div class="tags"><span>Estático / carrusel</span><span>Conversión</span><span>Como Emma Bridgewater</span></div></div>
-
-      <div class="fmt-item"><span class="k">07</span><h3>Volver a ver lo que te gustó</h3>
-        <p>Anuncios de catálogo para quien visitó el sitio: la pieza exacta que vio, con foto de ambiente y su historia corta. Requiere el píxel y el catálogo de Meta bien conectados.</p>
+    <!-- BOFU -->
+    <div class="stage" id="bofu">
+      <div class="stage-head"><span class="stage-k">BOFU · 10%</span><h3>Compra</h3></div>
+      <p>Esta persona visitó el sitio, vio una pieza o dejó algo en el carrito. El mensaje es directo: producto, precio, oferta y una razón para comprar ahora. Necesita el píxel y el catálogo de Meta bien conectados.</p>
+    </div>
+    <div class="fmt">
+      <div class="fmt-item"><span class="k">B1</span><h3>Volver a ver lo que te gustó</h3>
+        <p>Anuncios de catálogo con la pieza exacta que la persona vio, con foto de ambiente y su historia corta.</p>
         <p class="hook"><b>Inicio de ejemplo</b>"¿Te quedaste pensando en él? Casa de Agua sigue esperando su mesa."</p>
         <div class="tags"><span>Catálogo dinámico</span><span>Retargeting</span><span>Como MacKenzie-Childs</span></div></div>
 
-      <div class="fmt-item"><span class="k">08</span><h3>Comida servida y colaboraciones</h3>
-        <p>El plato en uso, con comida del Caribe (arepa de huevo, posta, sancocho, dulces costeños). Colaboraciones con cocineras, restaurantes o figuras de Barranquilla, y sorteos para crecer la base de correos.</p>
-        <p class="hook"><b>Inicio de ejemplo</b>"Así sirve [cocinera invitada] su almuerzo de domingo en Casa de Agua."</p>
-        <div class="tags"><span>Colaboración</span><span>Sorteo</span><span>Como Costiera y MacKenzie-Childs</span></div></div>
+      <div class="fmt-item"><span class="k">B2</span><h3>Sets con mejor precio</h3>
+        <p>Juegos de 2 y de 4 (comida + postre, mesa para cuatro) con un precio de set claro frente a las piezas por separado.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Mesa para cuatro: 4 platos de comida y 4 de postre, con [X]% de descuento."</p>
+        <div class="tags"><span>Estático / carrusel</span><span>Oferta</span><span>Como Emma Bridgewater</span></div></div>
+
+      <div class="fmt-item"><span class="k">B3</span><h3>Capítulos que se acaban</h3>
+        <p><span class="brand">Mada</span> ya organiza sus colecciones en capítulos. Avisar cuando un diseño está por agotarse y abrir lista de espera para el siguiente.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"El Capítulo Uno se está quedando sin piezas. El Dos llega en [fecha]."</p>
+        <div class="tags"><span>Escasez</span><span>Urgencia sin descuento</span><span>Como MacKenzie-Childs</span></div></div>
+
+      <div class="fmt-item"><span class="k">B4</span><h3>El regalo, a tiempo</h3>
+        <p>En temporada: la pieza en su empaque, el precio y la fecha límite para que llegue a tiempo. Entrega el mismo día en Barranquilla y de 3 a 5 días hábiles en el resto del país.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Pide antes del [fecha] y llega antes de Navidad, empacado y con tarjeta."</p>
+        <div class="tags"><span>Estático / reel corto</span><span>Fecha límite</span><span>Como Costiera</span></div></div>
     </div>
-    <p class="note wide"><strong>Para arrancar:</strong> cada formato en dos versiones (video e imagen) y con al menos dos inicios distintos. Lo que gane en pauta se vuelve una serie y una página de aterrizaje propia.</p>
+    <p class="note wide"><strong>Para arrancar:</strong> cada formato de TOFU en video y en imagen, con al menos dos hooks distintos para el mismo problema. El problema que mejor funcione en pauta se vuelve una serie y una página de aterrizaje propia.</p>
   </section>
 
   <!-- 3. DIAGNÓSTICO -->
@@ -525,7 +630,7 @@ strong{font-weight:600;color:var(--ink);}
 
       <article class="find"><div class="find-top"><span class="prio a">Prioridad alta</span><span class="area">Medición</span></div>
         <h3>No encontramos el píxel oficial de Meta ni Google Analytics</h3>
-        <p class="ev">En el código de la tienda solo aparece el píxel de una aplicación (que no es la de Meta) y un píxel personalizado cuyo contenido no se ve desde fuera. Sin el píxel y la API de conversiones, Meta no sabe quién compra y no puede optimizar ni hacer los anuncios de catálogo del punto 07.</p>
+        <p class="ev">En el código de la tienda solo aparece el píxel de una aplicación (que no es la de Meta) y un píxel personalizado cuyo contenido no se ve desde fuera. Sin el píxel y la API de conversiones, Meta no sabe quién compra y no puede optimizar ni hacer los anuncios de catálogo del fondo del embudo (B1).</p>
         <p class="fix">confirmarlo en el administrador de Shopify y conectar los canales oficiales de Facebook e Instagram (píxel, API de conversiones y catálogo) y de Google. Probar una compra de prueba en el Administrador de eventos antes de pautar.</p></article>
 
       <article class="find"><div class="find-top"><span class="prio a">Prioridad alta</span><span class="area">Confianza</span></div>
@@ -591,7 +696,7 @@ strong{font-weight:600;color:var(--ink);}
         <li>Aplicación de reseñas y correo para pedirlas</li>
         <li>Envío gratis desde un monto, visible</li>
         <li>Sets "Mesa para dos" y "Mesa para cuatro"</li>
-        <li>Primeros contenidos: historia, manos y mesa</li></ul></div>
+        <li>Primeros contenidos de descubrimiento (TOFU)</li></ul></div>
       <div class="col"><p class="label">Mes 2</p><h3>Escalar</h3><ul>
         <li>Portada nueva por categorías, sets y más vendidos</li>
         <li>Lanzamiento del siguiente capítulo como evento</li>
