@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Diagnóstico Con amor, Mada · LA REAL</title>
+<meta name="robots" content="noindex" />
+<meta property="og:title" content="Con amor, Mada · Referentes y diagnóstico del sitio" />
+<meta property="og:description" content="Marcas de vajilla escaladas en Meta, contenido para vender y diagnóstico de conversión de conamormada.com." />
+<meta property="og:image" content="https://juanfelareal.github.io/conamormada-diagnostico/img/ficha-escritorio.jpg" />
+<link rel="icon" type="image/png" href="assets/iso.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#F3F1ED; --surface:#FBFAF8; --ink:#121212; --ink-2:#3A3A3A; --muted:#7A7772;
+  --line:rgba(18,18,18,.09); --line-2:rgba(18,18,18,.16);
+  --dark:#121314; --dark-2:#1C1D1F; --on-dark:#F3F1ED; --on-dark-muted:#8E8C88;
+  --accent:#44BF47;
+  --r-xl:32px; --r-lg:22px; --r-md:14px;
+  --sans:'Inter Tight',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;font-size:16px;}
+img{display:block;max-width:100%;}
+a{color:inherit;}
+.doc{max-width:880px;margin:0 auto;padding:40px 24px 80px;}
+
+/* Tipografía (como la landing: títulos 300 con énfasis 600, etiquetas en mono) */
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;flex:none;}
+h1{font-size:clamp(38px,7vw,60px);line-height:1.03;letter-spacing:-.035em;font-weight:300;margin-top:18px;}
+h1 b,h2 b{font-weight:600;}
+.soft{color:var(--muted);}
+.lede{font-size:18px;line-height:1.6;color:var(--ink-2);margin-top:20px;max-width:640px;}
+section{padding-top:64px;}
+h2{font-size:clamp(28px,5vw,40px);line-height:1.08;letter-spacing:-.03em;font-weight:300;margin-top:12px;}
+section > p, .p{color:var(--ink-2);margin-top:14px;max-width:680px;}
+.brand{font-weight:600;font-style:italic;}
+strong{font-weight:600;color:var(--ink);}
+
+/* Cabecera */
+.doc-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:28px;border-bottom:1px solid var(--line);}
+.lr{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;letter-spacing:-.01em;}
+.lr img{width:26px;height:26px;}
+.x{color:var(--muted);font-weight:400;margin:0 4px;}
+.client-logo{height:26px;width:auto;}
+.doc-meta{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;}
+.title{padding-top:48px;}
+
+/* Componentes base */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 24px;}
+.note{margin-top:18px;padding:16px 18px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);color:var(--ink-2);font-size:15px;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);font-size:13px;color:var(--ink-2);}
+
+/* Pilares / principios */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:24px;}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px 22px;}
+.pillar .k{font-family:var(--mono);font-size:12px;color:var(--muted);}
+.pillar h3{font-size:20px;font-weight:500;letter-spacing:-.015em;margin-top:12px;line-height:1.2;}
+.pillar p{font-size:15px;color:var(--ink-2);margin-top:6px;}
+
+/* Opciones / sitios */
+.sites{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:24px;}
+.site-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 24px;}
+.site-card .label{margin-bottom:10px;}
+.site-card h3{font-size:22px;font-weight:500;letter-spacing:-.02em;}
+.site-card p{font-size:15px;color:var(--ink-2);margin-top:8px;}
+
+/* Variables de medición */
+.vars{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px;}
+.var{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:16px 14px;font-size:14px;color:var(--ink-2);}
+.var b{display:block;font-size:17px;font-weight:500;color:var(--ink);margin-bottom:2px;}
+
+/* KPI */
+.kpi-star{background:var(--dark);color:var(--on-dark);border-radius:var(--r-lg);padding:24px 26px;display:flex;flex-direction:column;gap:6px;}
+.kpi-star-tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-muted);}
+.kpi-star-text{font-size:18px;color:#C9C6C0;}
+.kpi-star-text b{color:var(--on-dark);font-weight:600;}
+.kpi-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.kpi-chip{padding:7px 14px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);font-size:13px;color:var(--ink-2);}
+
+/* Semáforo */
+.sem{display:grid;gap:8px;margin-top:22px;}
+.sem-item{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;font-size:15px;color:var(--ink-2);}
+.sem-dot{width:10px;height:10px;border-radius:50%;margin-top:7px;flex:none;}
+
+/* Tabla de resultados */
+.rtable-wrap{overflow-x:auto;margin-top:22px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);}
+.rtable{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums;}
+.rtable th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);}
+.rtable td{padding:13px 16px;border-bottom:1px solid var(--line);}
+.rtable tr.total td{font-weight:600;border-top:1px solid var(--ink);border-bottom:0;}
+.rtable .num{text-align:right;}
+
+/* Qué incluye: una sola columna */
+.inc{list-style:none;margin-top:22px;border-top:1px solid var(--line);}
+.inc li{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:16px 0;border-bottom:1px solid var(--line);font-size:16px;font-weight:500;}
+.inc li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:9px;}
+.inc li span{display:block;font-weight:400;font-size:15px;color:var(--ink-2);margin-top:2px;}
+.inc li span span{display:inline;margin:0;font-size:inherit;}
+
+/* Plan / proceso */
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;margin-top:26px;}
+.step{border-top:1px solid var(--ink);padding:18px 20px 0 0;}
+.step .k{font-family:var(--mono);font-size:12px;color:var(--muted);}
+.step h3{font-size:18px;font-weight:500;letter-spacing:-.015em;margin-top:14px;}
+.step p{font-size:14px;color:var(--ink-2);margin-top:6px;}
+
+/* Respaldo: cifras + partners */
+.backing{background:var(--dark);color:var(--on-dark);border-radius:var(--r-xl);padding:40px 32px;margin-top:24px;}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.stat{border-top:1px solid rgba(243,241,237,.3);padding-top:16px;}
+.stat .n{font-size:clamp(40px,8vw,64px);font-weight:300;letter-spacing:-.05em;line-height:1;}
+.stat .t{font-size:13px;color:#C9C6C0;margin-top:8px;}
+.partners{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px;}
+.partner{display:flex;align-items:center;gap:14px;background:var(--dark-2);border-radius:var(--r-lg);padding:18px 20px;}
+.partner .ok{width:38px;height:38px;border-radius:50%;border:2px solid var(--accent);display:grid;place-items:center;flex:none;}
+.partner b{display:block;font-size:19px;font-weight:600;letter-spacing:-.01em;}
+.partner span{font-size:13px;color:var(--on-dark-muted);}
+
+/* Equipo */
+.team{display:flex;flex-wrap:wrap;justify-content:center;gap:22px 14px;margin-top:26px;}
+.team .member{width:calc((100% - 4 * 14px) / 5);}
+.member .ph{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;background:var(--surface);}
+.member .ph img{width:100%;height:100%;object-fit:cover;}
+.member b{display:block;font-size:16px;font-weight:600;margin-top:10px;letter-spacing:-.01em;}
+.member span{display:block;font-size:13px;color:var(--muted);}
+
+/* Marcas: marquesina de logos (roster actual; nunca Kryolan ni ex-clientes) */
+.logos-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:40px 0;margin-top:24px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+.mq{overflow:hidden;}
+.mq + .mq{margin-top:34px;}
+.mq-track{display:flex;align-items:center;width:max-content;animation:mq 60s linear infinite;}
+.mq.rev .mq-track{animation-direction:reverse;}
+.mq-track img{height:calc(var(--s,1) * 40px);width:auto;margin-left:72px;flex:none;filter:brightness(0);opacity:.6;}
+.mq-track img.gray{filter:grayscale(1) contrast(1.1);opacity:.75;}
+.mq-track .txt{margin-left:72px;flex:none;font-size:22px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.6;white-space:nowrap;}
+@keyframes mq{to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;row-gap:18px;}.mq-track [aria-hidden]{display:none;}}
+
+/* Oferta (como la tarjeta de servicio de la landing) */
+.offer{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:30px 28px;margin-top:24px;}
+.offer.featured{background:var(--dark);border-color:var(--dark);color:var(--on-dark);}
+.offer-top{display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(243,241,237,.2);white-space:nowrap;}
+.offer h3{font-size:28px;font-weight:500;letter-spacing:-.025em;margin-top:14px;line-height:1.1;}
+.offer .desc{color:var(--ink-2);font-size:15px;margin-top:8px;}
+.offer.featured .desc{color:#C9C6C0;}
+.prices{margin-top:20px;border-top:1px solid var(--line);}
+.offer.featured .prices,.offer.featured .price{border-color:rgba(243,241,237,.1);}
+.price{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;}
+.price .l{color:var(--ink-2);}
+.offer.featured .price .l{color:#C9C6C0;}
+.price .v{font-weight:500;font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;}
+.price .v i{font-style:normal;font-weight:400;font-size:12px;color:var(--muted);}
+.price .v small{display:block;font-weight:400;font-size:12px;color:var(--muted);}
+.price .v.strike{text-decoration:line-through;color:var(--muted);}
+.total{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding-top:20px;}
+.total .big{font-size:clamp(32px,7vw,44px);font-weight:400;letter-spacing:-.035em;line-height:1;}
+.total .big small{display:block;font-size:14px;letter-spacing:0;color:#C9C6C0;margin-top:8px;}
+.fine{font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.5;}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px;}
+.perk{border-radius:var(--r-md);padding:16px 18px;background:var(--bg);}
+.offer.featured .perk{background:var(--dark-2);}
+.perk .label{color:var(--ink);margin-bottom:6px;}
+.offer.featured .perk .label{color:var(--on-dark);}
+.perk p{font-size:14px;color:var(--ink-2);line-height:1.5;}
+.offer.featured .perk p{color:#C9C6C0;}
+.perk .worth{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+.perk .worth b{color:var(--ink);font-weight:600;}
+.offer.featured .perk .worth b{color:var(--on-dark);}
+
+/* Paquetes (3 opciones; la recomendada con borde verde) */
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
+.pkg{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px 22px;display:flex;flex-direction:column;}
+.pkg.rec{border:2px solid var(--accent);}
+.pkg .rec-tag{align-self:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:#E3F3E4;padding:4px 9px;border-radius:999px;margin-bottom:12px;}
+.pkg h3{font-size:20px;font-weight:500;letter-spacing:-.015em;}
+.pkg .who{font-size:13px;color:var(--muted);margin-top:4px;}
+.pkg .amt{font-size:32px;font-weight:400;letter-spacing:-.03em;margin-top:16px;font-variant-numeric:tabular-nums;}
+.pkg .amt i{font-style:normal;font-size:13px;color:var(--muted);letter-spacing:0;}
+.pkg .unit{font-size:13px;color:var(--ink-2);margin-top:4px;}
+.pkg ul{list-style:none;margin-top:14px;border-top:1px solid var(--line);}
+.pkg li{font-size:14px;color:var(--ink-2);padding:9px 0;border-bottom:1px solid var(--line);}
+
+/* Garantía (banda oscura) */
+.guarantee{background:var(--dark);color:var(--on-dark);border-radius:var(--r-lg);padding:26px 26px;margin-top:22px;display:grid;gap:8px;}
+.guarantee .label{color:var(--on-dark-muted);}
+.guarantee p{color:#C9C6C0;font-size:16px;}
+.guarantee b{color:var(--on-dark);}
+
+/* Cierre */
+.next{background:var(--dark);color:var(--on-dark);border-radius:var(--r-xl);padding:48px 32px;margin-top:72px;text-align:center;}
+.next .who{display:inline-flex;align-items:center;gap:10px;padding:5px 14px 5px 5px;border:1px solid rgba(243,241,237,.12);border-radius:999px;background:var(--dark-2);font-size:13px;color:#C9C6C0;}
+.next .who img{width:30px;height:30px;border-radius:50%;object-fit:cover;filter:grayscale(1);}
+.next h2{margin-top:22px;}
+.next h2 .soft{color:var(--on-dark-muted);}
+.next p{color:#C9C6C0;margin:14px auto 0;max-width:460px;}
+.btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 24px;border-radius:999px;font-size:15px;font-weight:500;text-decoration:none;}
+.btn-light{background:var(--on-dark);color:var(--ink);}
+.btn-outline{border:1px solid rgba(243,241,237,.25);color:var(--on-dark);}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:28px;margin-top:28px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+
+@media (max-width:720px){
+  .doc{padding:28px 18px 64px;}
+  .doc-head{flex-direction:column;align-items:flex-start;}
+  .doc-meta{text-align:left;}
+  section{padding-top:52px;}
+  .vars{grid-template-columns:1fr 1fr;}
+  .stats{grid-template-columns:1fr;gap:14px;}
+  .partners,.perks{grid-template-columns:1fr;}
+  .team .member{width:calc((100% - 2 * 14px) / 3);}
+  .pkgs{grid-template-columns:1fr;}
+  .pkg.rec{order:-1;}
+  .plan{grid-template-columns:1fr 1fr;}
+  .backing,.offer,.next{padding-left:22px;padding-right:22px;}
+  .foot{flex-direction:column;align-items:flex-start;}
+  .mq-track img{height:calc(var(--s,1) * 30px);margin-left:48px;}
+  .mq-track .txt{margin-left:48px;font-size:17px;}
+}
+@media print{
+  *{box-shadow:none !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{background:var(--bg);}
+  .doc{max-width:none;padding:28px 40px;}
+  section,.offer,.pkg,.card,.backing,.team,.next{break-inside:avoid;}
+  .mq-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;row-gap:16px;}
+  .mq-track [aria-hidden]{display:none;}
+  .logos-card{-webkit-mask-image:none;mask-image:none;}
+}
+
+/* Ajustes de esta propuesta (sobre la plantilla) */
+.client-name{font-weight:600;font-size:14px;letter-spacing:.18em;text-transform:uppercase;}
+.offer-total{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding-top:20px;}
+.offer-total .big{font-size:clamp(30px,6vw,40px);font-weight:400;letter-spacing:-.035em;line-height:1;}
+.offer-total .big small{display:block;font-size:14px;letter-spacing:0;color:#C9C6C0;margin-top:8px;}
+.offer + .offer{margin-top:14px;}
+.offer .rec-tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:#E3F3E4;padding:4px 9px;border-radius:999px;}
+.offer .inc{margin-top:18px;}
+.offer.featured .inc,.offer.featured .inc li{border-color:rgba(243,241,237,.1);}
+.offer.featured .inc li{color:var(--on-dark);}
+.offer.featured .inc li span{color:#C9C6C0;}
+.offer.featured .fine{color:var(--on-dark-muted);}
+.offer.featured .perk .worth{border-color:rgba(243,241,237,.1);color:var(--on-dark-muted);}
+.plan{row-gap:30px;}
+.wide{max-width:none !important;}
+.quote{margin-top:22px;padding-left:18px;border-left:2px solid var(--ink);font-size:19px;line-height:1.5;letter-spacing:-.01em;max-width:640px;}
+.quote cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:10px;}
+.rtable td small,.rtable th small{display:block;letter-spacing:.06em;margin-top:2px;color:var(--muted);font-size:12px;}
+.rtable .keep{font-weight:600;}
+@media (max-width:720px){
+  .rtable{font-size:13px;}
+  .rtable th,.rtable td{padding:12px 10px;}
+  .quote{font-size:17px;}
+}
+@media print{
+  @page{margin:0;}
+  section{break-inside:auto;}
+  h2,.label{break-after:avoid;}
+  h2{break-inside:avoid;}
+  section:has(.logos-card),section:has(.team),section:has(.backing),section:has(.rtable-wrap),section:has(.plan .step h3):not(:has(.note)){break-inside:avoid;}
+  .pillar,.site-card,.step,.var,.backing,.member,.logos-card,.rtable-wrap,.perk,.quote,.inc li{break-inside:avoid;}
+}
+
+/* Informe: componentes propios */
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
+.toc a{text-decoration:none;}
+.brands{display:grid;gap:12px;margin-top:24px;}
+.brand-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 24px;}
+.brand-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;}
+.brand-card h3{font-size:24px;font-weight:500;letter-spacing:-.02em;margin-top:6px;}
+.brand-card .meta{font-size:14px;color:var(--muted);margin-top:4px;}
+.ads-count{text-align:right;}
+.ads-count b{display:block;font-size:40px;font-weight:300;letter-spacing:-.04em;line-height:1;}
+.ads-count span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.brand-card ul{list-style:none;margin-top:16px;border-top:1px solid var(--line);}
+.brand-card li{padding:11px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink-2);}
+.brand-card li b{color:var(--ink);font-weight:600;}
+.brand-card .q{font-style:italic;color:var(--ink);}
+.brand-card .lesson{margin-top:14px;font-size:15px;color:var(--ink);}
+.brand-card .lesson::before{content:"Lo que aprendemos: ";font-weight:600;}
+.fmt{display:grid;gap:10px;margin-top:24px;}
+.fmt-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 22px;display:grid;grid-template-columns:44px 1fr;gap:4px 14px;}
+.fmt-item .k{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:4px;}
+.fmt-item h3{font-size:19px;font-weight:500;letter-spacing:-.015em;}
+.fmt-item p{grid-column:2;font-size:15px;color:var(--ink-2);margin-top:4px;}
+.fmt-item .hook{grid-column:2;margin-top:10px;padding:12px 14px;background:var(--bg);border-radius:var(--r-md);font-size:14.5px;color:var(--ink);}
+.fmt-item .hook b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px;font-weight:500;}
+.fmt-item .tags{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.fmt-item .tags span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-2);}
+.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px;}
+.score{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:16px 14px;}
+.score b{display:block;font-size:30px;font-weight:300;letter-spacing:-.03em;line-height:1.1;}
+.score span{font-size:13px;color:var(--ink-2);}
+.score.bad b{color:#B3372E;}
+.score.mid b{color:#A86E0B;}
+.score.ok b{color:#2E8A31;}
+.finds{display:grid;gap:12px;margin-top:24px;}
+.find{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px 22px;}
+.find-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.prio{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:999px;}
+.prio.a{background:#F6E1DE;color:#8E2A22;}
+.prio.m{background:#F5ECD7;color:#7A5208;}
+.prio.b{background:#E3F3E4;color:#235F25;}
+.area{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.find h3{font-size:20px;font-weight:500;letter-spacing:-.015em;margin-top:10px;line-height:1.25;}
+.find .ev{font-size:15px;color:var(--ink-2);margin-top:8px;}
+.find .fix{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:15px;color:var(--ink);}
+.find .fix::before{content:"Qué hacer: ";font-weight:600;}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;align-items:start;}
+.shot figure{margin:0;}
+.shot img{border-radius:18px;border:1px solid var(--line);width:100%;}
+.shot figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.45;}
+.good{list-style:none;margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.good li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;font-size:15px;color:var(--ink-2);}
+.good li b{display:block;color:var(--ink);font-weight:600;}
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
+.road .col{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 20px;}
+.road .col.dark{background:var(--dark);border-color:var(--dark);color:var(--on-dark);}
+.road h3{font-size:19px;font-weight:500;margin-top:8px;}
+.road ul{list-style:none;margin-top:12px;}
+.road li{font-size:14.5px;padding:8px 0;border-top:1px solid var(--line);color:var(--ink-2);}
+.road .col.dark li{border-color:rgba(243,241,237,.12);color:#C9C6C0;}
+.road .col.dark .label{color:var(--on-dark-muted);}
+.src{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.6;}
+.src a{color:var(--ink-2);}
+@media (max-width:720px){
+  .scores{grid-template-columns:1fr 1fr;}
+  .shots{grid-template-columns:1fr 1fr;}
+  .shots .shot:last-child{grid-column:1 / -1;}
+  .good,.road{grid-template-columns:1fr;}
+  .fmt-item{grid-template-columns:1fr;}
+  .fmt-item p,.fmt-item .hook,.fmt-item .tags{grid-column:1;}
+  .ads-count{text-align:left;}
+}
+@media print{
+  .brand-card,.fmt-item,.find,.score,.shot,.road .col,.good li{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <header class="doc-head">
+    <div class="lr"><img src="assets/iso.png" alt="">LA REAL <span class="x">×</span> <span class="client-name">Con amor, Mada</span></div>
+    <div class="doc-meta">Investigación y diagnóstico<br>Octubre 2026</div>
+  </header>
+
+  <div class="title">
+    <p class="label"><span class="dot"></span>Referentes · contenido · sitio web</p>
+    <h1>Qué hacen las marcas de vajilla que venden en volumen, <b>y qué cambiar en conamormada.com</b></h1>
+    <p class="lede">Buscamos en el mundo marcas de platos y vajillas con más de 50 anuncios activos en Meta, elegimos las tres más cercanas a <span class="brand">Con amor, Mada</span> y revisamos qué contenido usan para vender. Después hicimos un diagnóstico del sitio, en celular y en computador, para encontrar lo que hoy frena la compra.</p>
+    <div class="toc">
+      <a class="pill" href="#referentes"><span class="dot"></span>1 · Referentes</a>
+      <a class="pill" href="#contenido"><span class="dot"></span>2 · Contenido para Mada</a>
+      <a class="pill" href="#sitio"><span class="dot"></span>3 · Diagnóstico del sitio</a>
+      <a class="pill" href="#plan"><span class="dot"></span>4 · Plan de acción</a>
+    </div>
+  </div>
+
+  <section>
+    <p class="label">Resumen</p>
+    <h2>Lo más importante <b>en tres puntos</b></h2>
+    <ul class="inc">
+      <li><div>Las marcas que escalan venden historias, colecciones y regalos, no platos sueltos<span>Las tres referentes repiten la misma fórmula: cada diseño tiene un significado, las colecciones se lanzan y se retiran, y la vajilla se ofrece como regalo y en juegos de 2 o 4 con descuento. <span class="brand">Mada</span> ya tiene la parte más difícil, que son las historias.</span></div></li>
+      <li><div>El sitio es lento en celular y esconde el botón de compra<span>La página de inicio pesa 10,9 MB (9,6 MB son un video) y la ficha de producto tarda 9,7 segundos en mostrar la imagen principal. En celular, el botón "Añadir al carrito" aparece casi dos pantallas más abajo del precio.</span></div></li>
+      <li><div>Faltan señales de confianza y medición antes de pautar<span>No hay reseñas en ninguna ficha, el costo de envío solo aparece al pagar y no encontramos el píxel oficial de Meta ni Google Analytics. Esto último hay que resolverlo antes de invertir en pauta.</span></div></li>
+    </ul>
+  </section>
+
+  <!-- 1. REFERENTES -->
+  <section id="referentes">
+    <p class="label">1 · Referentes mundiales</p>
+    <h2>Tres marcas de vajilla <b>escaladas en Meta</b></h2>
+    <p>Revisamos más de 20 marcas de vajilla en la Biblioteca de anuncios de Meta (activos, todos los países). Superan los 50 anuncios activos, entre otras, Our Place (~840), Villeroy &amp; Boch (~680), Emma Bridgewater (~310), MacKenzie-Childs (~270), Lenox (~140), Sophie Allport (~130), Costiera (~130), Fable (~74), Le Creuset (~74) y Vietri (~72). Elegimos las tres que más se parecen a <span class="brand">Mada</span>: cerámica decorada o pintada a mano, con diseños propios y venta directa.</p>
+
+    <div class="brands">
+      <article class="brand-card">
+        <div class="brand-top">
+          <div><p class="label">Reino Unido · emmabridgewater.co.uk</p><h3>Emma Bridgewater</h3><p class="meta">Cerámica decorada a mano · mugs desde £26, personalizados desde £35</p></div>
+          <div class="ads-count"><b>~310</b><span>anuncios activos</span></div>
+        </div>
+        <ul>
+          <li><b>Regalo como eje.</b> Campañas de temporada (Navidad) y para "la persona a la que es imposible regalarle".</li>
+          <li><b>Cada diseño cuenta algo.</b> Uno de sus anuncios: <span class="q">"Which mug tells your story?"</span>, cuatro mugs con cuatro significados.</li>
+          <li><b>Personalización:</b> nombres y frases en la pieza.</li>
+          <li><b>Juegos de 4 con descuento:</b> 15% por 2 mugs y 20% por sets de 4 platos. Envío gratis desde £50.</li>
+          <li><b>Mesa de anfitrión, colaboraciones y la fábrica</b> como contenido (visitas y talleres de pintura).</li>
+        </ul>
+        <p class="lesson">la gente colecciona diseños con significado y los regala. Un plato con historia se vende mejor como regalo que como plato.</p>
+      </article>
+
+      <article class="brand-card">
+        <div class="brand-top">
+          <div><p class="label">Estados Unidos · mackenzie-childs.com</p><h3>MacKenzie-Childs</h3><p class="meta">Cerámica pintada a mano en Aurora, NY · plato llano US$80, set de 4 US$310</p></div>
+          <div class="ads-count"><b>~270</b><span>anuncios activos</span></div>
+        </div>
+        <ul>
+          <li><b>Mucho video:</b> cerca de 210 de sus ~270 anuncios son en video.</li>
+          <li><b>Catálogo dinámico para quien ya visitó:</b> <span class="q">"Come back and take another look…"</span> con la pieza exacta que vio.</li>
+          <li><b>Escasez de diseños:</b> avisan cuando un patrón se retira y lanzan un jarrón de edición limitada cada mes.</li>
+          <li><b>Sorteos para captar correos</b> y colaboraciones con figuras conocidas.</li>
+          <li><b>Calendario de ocasiones:</b> Halloween, temporada de otoño, Navidad.</li>
+        </ul>
+        <p class="lesson">un patrón reconocible se vuelve identidad, y las ediciones que se acaban crean urgencia sin poner descuentos.</p>
+      </article>
+
+      <article class="brand-card">
+        <div class="brand-top">
+          <div><p class="label">EE. UU. / Italia · shopcostiera.com</p><h3>Costiera</h3><p class="meta">Cerámica pintada a mano en Vietri + aceite de oliva · plato desde US$32</p></div>
+          <div class="ads-count"><b>~130</b><span>anuncios activos</span></div>
+        </div>
+        <ul>
+          <li><b>Historia del artesano y del lugar:</b> cada botella <span class="q">"hand-painted by artisans in a small town on the Amalfi Coast"</span>.</li>
+          <li><b>Regalo en caja</b> en vez de tarjetas de regalo.</li>
+          <li><b>Ritual de mesa:</b> los mejores momentos pasan alrededor de la mesa; el plato aparece con comida servida.</li>
+          <li><b>Un consumible abre la puerta:</b> el aceite trae al cliente, que después compra la cerámica.</li>
+          <li><b>Kits de inicio</b> y 10% en la primera compra.</li>
+        </ul>
+        <p class="lesson">el origen (un pueblo, unas manos) es el argumento de venta, y la pieza se muestra en uso, con comida, no en estudio.</p>
+      </article>
+    </div>
+    <p class="src">Conteos leídos en la Biblioteca de anuncios de Meta el 22 de octubre de 2026 (filtro: activos, todos los países, por página). Meta cuenta versiones de anuncio, no campañas. Precios y ofertas tomados de los sitios de cada marca ese mismo día. Para ver los anuncios: <a href="https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&view_all_page_id=251392524944" target="_blank" rel="noopener">Emma Bridgewater</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&view_all_page_id=74723374798" target="_blank" rel="noopener">MacKenzie-Childs</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=ALL&view_all_page_id=183747384812714" target="_blank" rel="noopener">Costiera</a>.</p>
+  </section>
+
+  <!-- 2. CONTENIDO -->
+  <section id="contenido">
+    <p class="label">2 · Contenido para vender</p>
+    <h2>Ocho tipos de contenido <b>para Con amor, Mada</b></h2>
+    <p>Son los formatos que más se repiten en las referentes, traducidos al universo de <span class="brand">Mada</span>. Los ejemplos de inicio son puntos de partida: los ángulos definitivos se validan con datos durante las primeras semanas de pauta.</p>
+
+    <div class="fmt">
+      <div class="fmt-item"><span class="k">01</span><h3>La historia de cada diseño</h3>
+        <p>Cada plato ya tiene nombre y cuento (Casa de Agua, Reposo Post Almuerzo, En Menos que Canta un Gallo). En video: el plato en manos, con la voz de una de las fundadoras leyendo su historia.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Este plato tiene nombre propio. Se llama Casa de Agua y lleva el mar adentro."</p>
+        <div class="tags"><span>Reel 15–30 s</span><span>Descubrimiento</span><span>Como Emma Bridgewater</span></div></div>
+
+      <div class="fmt-item"><span class="k">02</span><h3>Las manos detrás de cada pieza</h3>
+        <p>El taller, los artesanos y el proceso, desde la porcelana en blanco hasta la pieza terminada. Mostrar el proceso real tal como es (ver el punto sobre "pintado a mano" y "decal" en el diagnóstico).</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Nadie en Colombia hace este plato igual dos veces. Te mostramos por qué."</p>
+        <div class="tags"><span>Video detrás de cámaras</span><span>Confianza</span><span>Como Costiera</span></div></div>
+
+      <div class="fmt-item"><span class="k">03</span><h3>Arma la mesa en 15 segundos</h3>
+        <p>Plano cenital: mantel, individual, plato de comida, plato de postre, servilleta y servilletero, uno tras otro. Vende el conjunto completo y sube el ticket.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Así se pone una mesa del Caribe para el almuerzo del domingo."</p>
+        <div class="tags"><span>Video cenital</span><span>Consideración</span><span>Sets</span></div></div>
+
+      <div class="fmt-item"><span class="k">04</span><h3>El regalo que no se olvida</h3>
+        <p>Unboxing del empaque y la tarjeta, y quién lo recibe. Calendario: Navidad y fin de año, Día de la Madre (mayo), Amor y Amistad (septiembre), matrimonios y casa nueva.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Para la que ya tiene de todo: un plato con una historia del Caribe."</p>
+        <div class="tags"><span>Unboxing</span><span>Temporadas</span><span>Como Emma Bridgewater y Costiera</span></div></div>
+
+      <div class="fmt-item"><span class="k">05</span><h3>Capítulos que se acaban</h3>
+        <p><span class="brand">Mada</span> ya organiza sus colecciones en capítulos. Lanzar cada uno como evento, con cuenta regresiva, lista de espera por correo y aviso cuando un diseño está por agotarse.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"El Capítulo Uno se está quedando sin piezas. El Dos llega en [fecha]."</p>
+        <div class="tags"><span>Lanzamiento</span><span>Urgencia sin descuento</span><span>Como MacKenzie-Childs</span></div></div>
+
+      <div class="fmt-item"><span class="k">06</span><h3>Sets con mejor precio</h3>
+        <p>Juegos de 2 y de 4 (comida + postre, mesa para cuatro) con un precio de set claro frente a las piezas por separado. Pieza fija para la pauta de conversión.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Mesa para cuatro: 4 platos de comida y 4 de postre, con [X]% de descuento."</p>
+        <div class="tags"><span>Estático / carrusel</span><span>Conversión</span><span>Como Emma Bridgewater</span></div></div>
+
+      <div class="fmt-item"><span class="k">07</span><h3>Volver a ver lo que te gustó</h3>
+        <p>Anuncios de catálogo para quien visitó el sitio: la pieza exacta que vio, con foto de ambiente y su historia corta. Requiere el píxel y el catálogo de Meta bien conectados.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"¿Te quedaste pensando en él? Casa de Agua sigue esperando su mesa."</p>
+        <div class="tags"><span>Catálogo dinámico</span><span>Retargeting</span><span>Como MacKenzie-Childs</span></div></div>
+
+      <div class="fmt-item"><span class="k">08</span><h3>Comida servida y colaboraciones</h3>
+        <p>El plato en uso, con comida del Caribe (arepa de huevo, posta, sancocho, dulces costeños). Colaboraciones con cocineras, restaurantes o figuras de Barranquilla, y sorteos para crecer la base de correos.</p>
+        <p class="hook"><b>Inicio de ejemplo</b>"Así sirve [cocinera invitada] su almuerzo de domingo en Casa de Agua."</p>
+        <div class="tags"><span>Colaboración</span><span>Sorteo</span><span>Como Costiera y MacKenzie-Childs</span></div></div>
+    </div>
+    <p class="note wide"><strong>Para arrancar:</strong> cada formato en dos versiones (video e imagen) y con al menos dos inicios distintos. Lo que gane en pauta se vuelve una serie y una página de aterrizaje propia.</p>
+  </section>
+
+  <!-- 3. DIAGNÓSTICO -->
+  <section id="sitio">
+    <p class="label">3 · Diagnóstico de conamormada.com</p>
+    <h2>Dónde se pierde <b>la venta hoy</b></h2>
+    <p>Revisamos la tienda (Shopify, tema Milano, 23 productos) el 22 de octubre de 2026 en un iPhone simulado y en computador, y medimos la velocidad con Lighthouse, la herramienta de Google.</p>
+
+    <div class="scores">
+      <div class="score mid"><b>63</b><span>Velocidad de la página de inicio en celular (de 100)</span></div>
+      <div class="score bad"><b>58</b><span>Velocidad de la ficha de producto en celular</span></div>
+      <div class="score bad"><b>9,7 s</b><span>Hasta ver la imagen principal en la ficha (meta: menos de 2,5 s)</span></div>
+      <div class="score bad"><b>10,9 MB</b><span>Peso de la página de inicio (9,6 MB son el video)</span></div>
+    </div>
+
+    <div class="shots">
+      <figure class="shot"><img src="img/home-popup.jpg" alt="Página de inicio en celular con la ventana de suscripción" loading="lazy"><figcaption>Inicio en celular: en la primera visita, la ventana del 10% tapa la portada.</figcaption></figure>
+      <figure class="shot"><img src="img/ficha-scroll.jpg" alt="Ficha de producto en celular" loading="lazy"><figcaption>Ficha en celular: después del precio vienen la descripción y cuatro acordeones antes del botón de compra.</figcaption></figure>
+      <figure class="shot"><img src="img/coleccion.jpg" alt="Colección en celular" loading="lazy"><figcaption>Colección: buena fotografía, pero muestra 12 de 23 productos y nombres en inglés.</figcaption></figure>
+    </div>
+
+    <div class="finds">
+      <article class="find"><div class="find-top"><span class="prio a">Prioridad alta</span><span class="area">Velocidad</span></div>
+        <h3>El video de la portada pesa 9,6 MB y se descarga también en celular</h3>
+        <p class="ev">Es un video en 1080p a 7,2 Mbps. En una conexión móvil normal, la portada tarda más de 7 segundos en verse completa, y mucha gente que llega desde un anuncio se va antes.</p>
+        <p class="fix">una versión móvil de menos de 1,5 MB (720p, 10–15 s, sin audio) con imagen de portada mientras carga, o una foto fija en celular. Comprimir también las fotos de la ficha, donde la imagen principal tarda 9,7 s.</p></article>
+
+      <article class="find"><div class="find-top"><span class="prio a">Prioridad alta</span><span class="area">Ficha de producto</span></div>
+        <h3>En celular, el botón de compra queda casi dos pantallas debajo del precio</h3>
+        <p class="ev">El precio aparece a 618 px y el botón "Añadir al carrito" a unos 1.240 px, después de la descripción y de los acordeones de historia, detalles, cuidado y envíos. La barra flotante inferior del tema además tapa parte del contenido.</p>
+        <p class="fix">precio, medida y botón justo debajo de las fotos, y un botón fijo que acompañe al hacer scroll. La historia y los acordeones van después. Revisar si la barra flotante inferior hace falta en la ficha.</p></article>
+
+      <article class="find"><div class="find-top"><span class="prio a">Prioridad alta</span><span class="area">Confianza</span></div>
+        <h3>"Pintado a mano" en la descripción y "diseño en decal" en los detalles</h3>
+        <p class="ev">La ficha de Casa de Agua dice "Pintado a mano con el blanco de la espuma del oleaje" y, en Detalles del producto, "100% hecho a mano / diseño en decal altamente resistente". Un comprador atento lo nota, y con pauta lo nota mucha más gente.</p>
+        <p class="fix">explicar el proceso real con las mismas palabras en todo el sitio (por ejemplo: diseño original dibujado a mano, aplicado sobre porcelana y horneado), y usarlo como ventaja: resiste lavavajillas y microondas.</p></article>
+
+      <article class="find"><div class="find-top"><span class="prio a">Prioridad alta</span><span class="area">Medición</span></div>
+        <h3>No encontramos el píxel oficial de Meta ni Google Analytics</h3>
+        <p class="ev">En el código de la tienda solo aparece el píxel de una aplicación (que no es la de Meta) y un píxel personalizado cuyo contenido no se ve desde fuera. Sin el píxel y la API de conversiones, Meta no sabe quién compra y no puede optimizar ni hacer los anuncios de catálogo del punto 07.</p>
+        <p class="fix">confirmarlo en el administrador de Shopify y conectar los canales oficiales de Facebook e Instagram (píxel, API de conversiones y catálogo) y de Google. Probar una compra de prueba en el Administrador de eventos antes de pautar.</p></article>
+
+      <article class="find"><div class="find-top"><span class="prio a">Prioridad alta</span><span class="area">Confianza</span></div>
+        <h3>No hay reseñas en ninguna ficha</h3>
+        <p class="ev">No hay aplicación de reseñas instalada ni fotos de clientes. Con platos de $140.000 a $190.000 y una marca nueva para quien llega por un anuncio, la opinión de otros compradores pesa mucho.</p>
+        <p class="fix">instalar una aplicación de reseñas (Judge.me tiene plan gratis), pedir reseña con foto por correo 10 días después de la entrega y mostrar las mejores en la portada y en los anuncios.</p></article>
+
+      <article class="find"><div class="find-top"><span class="prio m">Prioridad media</span><span class="area">Envío y ticket</span></div>
+        <h3>El costo de envío solo aparece al pagar y no hay envío gratis desde un monto</h3>
+        <p class="ev">La ficha dice que el envío "se calcula según peso, volumen y destino" y se muestra antes de finalizar. Emma Bridgewater y MacKenzie-Childs muestran un umbral de envío gratis (£50 y US$150), y Emma Bridgewater además da descuentos por cantidad.</p>
+        <p class="fix">definir un umbral de envío gratis por encima del precio de dos platos (por ejemplo, desde $350.000) y mostrarlo en la barra superior y en el carrito. Mostrar los tiempos de entrega junto al botón: el mismo día en Barranquilla y de 3 a 5 días hábiles en el resto del país.</p></article>
+
+      <article class="find"><div class="find-top"><span class="prio m">Prioridad media</span><span class="area">Ficha de producto</span></div>
+        <h3>No queda claro qué se compra: nombres en inglés y la medida escondida</h3>
+        <p class="ev">Los productos se llaman "Dinner Plate" y "Dessert Plate". La medida (28 cm) y la nota "te llegará un plato" están dentro de un acordeón, y las direcciones de las fichas dicen "set-x-2", lo que hace pensar que son dos.</p>
+        <p class="fix">nombres en español ("Plato de comida · 28 cm"), la línea "1 pieza · 28 cm · apto para lavavajillas y microondas" bajo el precio, y direcciones nuevas sin "set-x-2", con redirección de las viejas.</p></article>
+
+      <article class="find"><div class="find-top"><span class="prio m">Prioridad media</span><span class="area">Ticket promedio</span></div>
+        <h3>Casi no hay sets para armar la mesa completa</h3>
+        <p class="ev">De 23 productos, solo 2 son sets (Domingos de Desayuno, a $250.000 y $290.000). El sitio tiene platos, individuales, servilletas, servilleteros y portavasos, que juntos arman una mesa, pero se venden por separado.</p>
+        <p class="fix">sets de "Mesa para dos" y "Mesa para cuatro" con precio de set, un bloque "Completa tu mesa" en la ficha y una sugerencia en el carrito.</p></article>
+
+      <article class="find"><div class="find-top"><span class="prio m">Prioridad media</span><span class="area">Página de inicio</span></div>
+        <h3>La portada cuenta la historia pero muestra pocos productos</h3>
+        <p class="ev">Después del video hay un carrusel con cuatro platos y luego bloques de marca (Sobre Mada, El Alma de Mada). El botón principal dice "SHOP NOW", en inglés. En la primera visita, la ventana del 10% aparece al poco de entrar y tapa la portada.</p>
+        <p class="fix">accesos por categoría con foto (platos, individuales, servilletas, joyería), un bloque de sets y de más vendidos, el botón en español ("Ver la colección") y la ventana del 10% a los 20–30 segundos o al bajar media página.</p></article>
+
+      <article class="find"><div class="find-top"><span class="prio b">Prioridad baja</span><span class="area">Colección y catálogo</span></div>
+        <h3>La colección muestra 12 de 23 productos y hay piezas agotadas a la vista</h3>
+        <p class="ev">El resto queda en una segunda página. Tardes Tejidas Portavaso tiene sus cuatro colores agotados y Tardes Tejidas Individual está marcado como "coming soon".</p>
+        <p class="fix">mostrar todos los productos en una sola página, filtros rápidos por categoría arriba y "Avísame cuando llegue" en lo agotado, que además capta correos.</p></article>
+
+      <article class="find"><div class="find-top"><span class="prio b">Prioridad baja</span><span class="area">SEO y WhatsApp</span></div>
+        <h3>La portada no tiene descripción ni imagen para compartir</h3>
+        <p class="ev">Falta la meta descripción y la imagen para redes (og:image). Cuando alguien comparte conamormada.com por WhatsApp, el enlace sale sin foto.</p>
+        <p class="fix">agregarlas en Preferencias de la tienda en Shopify: una frase como "Vajillas y piezas para el hogar hechas a mano en el Caribe colombiano" y una foto de mesa puesta.</p></article>
+    </div>
+
+    <h2 style="margin-top:48px">Lo que ya <b>está bien</b></h2>
+    <ul class="good">
+      <li><b>Fotografía excelente</b>8 fotos por producto en promedio, con ambiente y en uso.</li>
+      <li><b>Historias propias</b>Cada pieza tiene nombre y cuento. Es lo más difícil de construir y ya está hecho.</li>
+      <li><b>Preguntas frecuentes en la ficha</b>Responden dudas de materiales, artesanos y producción.</li>
+      <li><b>Pago a cuotas con Addi</b>La integración ya está instalada, útil para tickets de más de $150.000.</li>
+      <li><b>Entrega el mismo día en Barranquilla</b>Un argumento fuerte para pauta local que hoy no se ve en la portada.</li>
+      <li><b>Accesibilidad</b>95–98 de 100 en Lighthouse, con textos alternativos en las imágenes.</li>
+    </ul>
+  </section>
+
+  <!-- 4. PLAN -->
+  <section id="plan">
+    <p class="label">4 · Plan de acción</p>
+    <h2>En qué orden <b>hacerlo</b></h2>
+    <div class="road">
+      <div class="col dark"><p class="label">Semana 1</p><h3>Antes de pautar</h3><ul>
+        <li>Conectar píxel, API de conversiones, catálogo y Google</li>
+        <li>Video móvil liviano y fotos comprimidas</li>
+        <li>Unificar "pintado a mano" y "decal"</li>
+        <li>Medida y "1 pieza" visibles; nombres en español</li>
+        <li>Ventana del 10% más tarde; meta descripción e imagen</li></ul></div>
+      <div class="col"><p class="label">Semanas 2 a 4</p><h3>Ficha y confianza</h3><ul>
+        <li>Botón de compra arriba y fijo en celular</li>
+        <li>Aplicación de reseñas y correo para pedirlas</li>
+        <li>Envío gratis desde un monto, visible</li>
+        <li>Sets "Mesa para dos" y "Mesa para cuatro"</li>
+        <li>Primeros contenidos: historia, manos y mesa</li></ul></div>
+      <div class="col"><p class="label">Mes 2</p><h3>Escalar</h3><ul>
+        <li>Portada nueva por categorías, sets y más vendidos</li>
+        <li>Lanzamiento del siguiente capítulo como evento</li>
+        <li>Anuncios de catálogo para quien ya visitó</li>
+        <li>Temporada de regalos de Navidad</li>
+        <li>Página de aterrizaje para el ángulo que más venda</li></ul></div>
+    </div>
+  </section>
+
+  <div class="next">
+    <span class="who"><img src="assets/juanfe-sm.jpg" alt="">Te atiende Juanfe</span>
+    <h2><b>¿Lo revisamos juntos?</b><br><span class="soft">En una llamada de 30 minutos priorizamos qué hacer primero.</span></h2>
+    <p>Varios de estos cambios se hacen en días y conviene tenerlos listos antes de la temporada de Navidad.</p>
+    <div class="btns">
+      <a class="btn btn-light" href="mailto:juanfe@larealmarketing.com?subject=Diagn%C3%B3stico%20Con%20amor%2C%20Mada">Escribirle a Juanfe</a>
+      <a class="btn btn-outline" href="https://landing.larealmarketing.com" target="_blank" rel="noopener">Conocer LA REAL</a>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="lr"><img src="assets/iso.png" alt="">LA REAL</div>
+    <span>juanfe@larealmarketing.com · landing.larealmarketing.com</span>
+  </footer>
+</div>
+</body>
+</html>
